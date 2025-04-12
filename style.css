@@ -1,0 +1,354 @@
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+SHARED CSS STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+html {
+    background: #ffffff;
+    font-family: "Dosis", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main, nav, aside {
+    color: #1e4040;
+}
+
+img {
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+VARIABLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+/* make sure that (navbar-width + mainContainer-maxWidth + sidebar-maxWidth) < 1400px */
+:root {
+    --header-height: 70px;
+    --navbar-width: 90px;
+    --mainContainer-maxWidth: 800px;
+    --sidebar-maxWidth: 350px;
+    --footer-height: 60px;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+OUTER-GRID STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+.outer-grid {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: var(--header-height) 1fr;
+    grid-template-columns: var(--navbar-width) 1fr;
+    grid-template-areas: 
+    "alias-header alias-header"
+    "alias-navbar alias-inner-grid";
+}
+
+.outer-grid-expanded {
+    grid-template-areas: 
+    "alias-header     alias-header"
+    "alias-inner-grid alias-inner-grid";
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+INNER-GRID STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+.inner-grid {
+    overflow-y: scroll;
+    grid-area: alias-inner-grid;
+
+    display: grid;
+    grid-template-rows: auto auto var(--footer-height);
+    grid-template-areas: 
+    "alias-main"
+    "alias-sidebar"
+    "alias-footer";
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+HEADER STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+header {
+    grid-area: alias-header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #1e4040;
+    color: #71d99e;
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+header h2 {
+    font-weight: 700;
+}
+
+.fa-bars {
+    margin-right: 5px;
+}
+
+.header-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.header-links i {
+    font-size: 0.8rem;
+}
+
+.header-links a {
+    color: #71d99e;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 7px;
+}
+
+.link-container:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+NAVBAR STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+nav {
+    grid-area: alias-navbar;
+}
+
+.hide-nav {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.nav-links a {
+    color: #1e4040;
+    text-decoration: none;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+MAIN STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+main {
+    grid-area: alias-main;
+    padding: 20px 5%;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+main p {
+    margin: 15px 0px;
+}
+
+main a {
+    color: #71d99e;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+COLLAGE STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+.collage {
+    height: auto;
+    margin: 30px 0px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
+    align-items: center;
+  }
+  
+  .collage * {
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  
+  .collage-img1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    z-index: 1;
+    transform: rotate(-3deg);
+  }
+  
+  .collage-img2 {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    z-index: 2;
+    box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .collage-img3 {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    z-index: 1;
+    transform: rotate(3deg);
+  }
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+SIDEBAR STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+aside {
+    grid-area: alias-sidebar;
+    padding: 20px 5%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+aside h2 {
+    color: #1e4040;
+}
+
+aside p {
+    margin: 15px 0px;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+FOOTER STYLES 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+footer {
+    grid-area: alias-footer;
+    display: flex;
+    justify-content: center;
+    background: #1e4040;
+}
+
+footer p {
+    color: #ffffff;
+    align-self: center;
+}
+
+footer a {
+    color: #71d99e;
+}
+
+/*
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+BREAKPOINTS 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
+
+/* tablet-view */
+@media (min-width: 576px) {
+    .outer-grid-expanded {
+        grid-template-areas: 
+        "alias-header alias-header"
+        "alias-navbar alias-inner-grid";
+    }
+
+    .fa-bars {
+        display: none !important;
+    }
+
+    .hide-nav {
+        display: inline;
+    }
+
+    aside {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* desktop-view */
+@media (min-width: 992px) {
+    .inner-grid {
+        grid-template-rows: 1fr var(--footer-height);
+        grid-template-columns: minmax(auto, calc(var(--mainContainer-maxWidth) * 0.9)) 1fr;
+        grid-template-areas:
+        "alias-main   alias-sidebar"
+        "alias-footer alias-footer";
+    }
+
+    aside {
+        border-top: none;
+    }
+}
+
+/* For much wider screens, shift most of the content to the center */
+@media (min-width: 1400px) {
+    .outer-grid {
+        /* grid-template-columns: (see script.js) */
+        grid-template-areas: 
+        "alias-header alias-header alias-header     alias-header"
+        "      .      alias-navbar alias-inner-grid alias-inner-grid";
+    }
+
+    header {
+        grid-area: alias-header;
+        display: grid;
+        /* grid-template-columns: (see script.js) */
+        grid-template-areas: ". alias-lh alias-rh .";
+    }
+
+    .header-menu {
+        grid-area: alias-lh;
+        justify-self: start;
+    }
+
+    .header-links {
+        grid-area: alias-rh;
+        justify-self: end;
+    }
+
+    nav {
+        grid-area: alias-navbar;
+    }
+
+    .inner-grid {
+        grid-template-rows: 1fr var(--footer-height);
+        /* grid-template-columns: (see script.js) */
+        grid-template-areas:
+        "alias-main   alias-sidebar       .     "
+        "alias-footer alias-footer  alias-footer";
+    }
+
+    aside {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
